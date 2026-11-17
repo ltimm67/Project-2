@@ -1,0 +1,245 @@
+{
+  "metadata": {
+    "project": "FIN 43900 Project 2 \u2014 Investment Management Application",
+    "author": "Lucas Timm",
+    "email": "ltimm@purdue.edu",
+    "partner_reviewer": "Miles Nine (TSLA)",
+    "client_mandate": "Meridian Foundation Reserve ($100 Million Portfolio)",
+    "run_timestamp": "2026-11-17T13:48:09.427548",
+    "as_of_date": "2026-09-30",
+    "ai_disclosure": "I used AI to help structure, debug, and document the application. I checked the analysis and own the investment decision. Education only; not investment advice."
+  },
+  "mandate_specification": {
+    "reserve_size_dollars": 100000000.0,
+    "objective_annual_return_hurdle": 0.0503,
+    "reserve_liquidity_floor_pct": 0.03,
+    "reserve_liquidity_floor_dollars": 3000000.0,
+    "universe": [
+      "SGOV",
+      "RXI",
+      "PEJ"
+    ],
+    "strategic_benchmark": {
+      "RXI": 0.6,
+      "SGOV": 0.4
+    },
+    "constraints": {
+      "long_only": true,
+      "single_issuer_limit_pct": 0.08,
+      "five_day_liquidity_pct": 0.9,
+      "annual_turnover_limit_pct": 0.25,
+      "one_year_downside_var_limit_pct": 0.1
+    }
+  },
+  "statistics_60_month": {
+    "annualized_returns": {
+      "SGOV": 0.0378,
+      "RXI": 0.0353,
+      "PEJ": 0.0685
+    },
+    "annualized_volatilities": {
+      "SGOV": 0.0048,
+      "RXI": 0.1907,
+      "PEJ": 0.2122
+    },
+    "correlations": {
+      "SGOV": {
+        "SGOV": 1.0,
+        "RXI": 0.2594,
+        "PEJ": 0.1724
+      },
+      "RXI": {
+        "SGOV": 0.2594,
+        "RXI": 1.0,
+        "PEJ": 0.7938
+      },
+      "PEJ": {
+        "SGOV": 0.1724,
+        "RXI": 0.7938,
+        "PEJ": 1.0
+      }
+    },
+    "covariances": {
+      "SGOV": {
+        "SGOV": 2.3e-05,
+        "RXI": 0.000239,
+        "PEJ": 0.000177
+      },
+      "RXI": {
+        "SGOV": 0.000239,
+        "RXI": 0.036357,
+        "PEJ": 0.032111
+      },
+      "PEJ": {
+        "SGOV": 0.000177,
+        "RXI": 0.032111,
+        "PEJ": 0.04501
+      }
+    }
+  },
+  "portfolios": {
+    "equal_weight_baseline": {
+      "weights": {
+        "SGOV": 0.3333,
+        "RXI": 0.3333,
+        "PEJ": 0.3333
+      },
+      "metrics": {
+        "return": 0.0472,
+        "volatility": 0.1276,
+        "sharpe": 0.0737,
+        "reserve": 0.3333,
+        "var_95": -0.1626
+      },
+      "mandate_audit": {
+        "verdict": "FAILS MANDATE",
+        "detail": "Return 4.72% < 5.03% Hurdle",
+        "rules": {
+          "weights_sum_to_100": true,
+          "long_only": true,
+          "reserve_floor_met": true,
+          "objective_return_cleared": false,
+          "five_day_liquidity_ge_90": true,
+          "single_issuer_le_8": true,
+          "one_year_downside_var_pass": false
+        }
+      }
+    },
+    "inverse_volatility_baseline": {
+      "weights": {
+        "SGOV": 0.9542,
+        "RXI": 0.0241,
+        "PEJ": 0.0217
+      },
+      "metrics": {
+        "return": 0.0384,
+        "volatility": 0.0107,
+        "sharpe": 0.0551,
+        "reserve": 0.9542,
+        "var_95": 0.0207
+      },
+      "mandate_audit": {
+        "verdict": "FAILS MANDATE",
+        "detail": "Return 3.84% < 5.03% Hurdle",
+        "rules": {
+          "weights_sum_to_100": true,
+          "long_only": true,
+          "reserve_floor_met": true,
+          "objective_return_cleared": false,
+          "five_day_liquidity_ge_90": true,
+          "single_issuer_le_8": true,
+          "one_year_downside_var_pass": true
+        }
+      }
+    },
+    "constrained_optimal_60_month": {
+      "weights": {
+        "SGOV": 0.55,
+        "RXI": 0.0,
+        "PEJ": 0.45
+      },
+      "metrics": {
+        "return": 0.0516,
+        "volatility": 0.096,
+        "sharpe": 0.1439,
+        "reserve": 0.55,
+        "var_95": -0.1062
+      },
+      "mandate_audit": {
+        "verdict": "PASSES MANDATE",
+        "detail": "All rules satisfied",
+        "rules": {
+          "weights_sum_to_100": true,
+          "long_only": true,
+          "reserve_floor_met": true,
+          "objective_return_cleared": true,
+          "five_day_liquidity_ge_90": true,
+          "single_issuer_le_8": true,
+          "one_year_downside_var_pass": false
+        }
+      }
+    },
+    "stress_window_36_month": {
+      "weights": {
+        "SGOV": 0.95,
+        "RXI": 0.0,
+        "PEJ": 0.05
+      },
+      "metrics": {
+        "return": 0.0512,
+        "volatility": 0.0092,
+        "sharpe": 1.4596,
+        "reserve": 0.95,
+        "var_95": 0.0361
+      },
+      "largest_weight_shift_percentage_points": 40.0,
+      "mandate_audit": {
+        "verdict": "PASSES MANDATE",
+        "detail": "All rules satisfied",
+        "rules": {
+          "weights_sum_to_100": true,
+          "long_only": true,
+          "reserve_floor_met": true,
+          "objective_return_cleared": true,
+          "five_day_liquidity_ge_90": true,
+          "single_issuer_le_8": true,
+          "one_year_downside_var_pass": true
+        }
+      }
+    }
+  },
+  "point_in_time_signal": {
+    "provider": "Federal Reserve Bank of St. Louis (FRED & ALFRED)",
+    "series": [
+      "DGS10",
+      "FEDFUNDS"
+    ],
+    "dgs10_yield_pct": 3.85,
+    "fedfunds_rate_pct": 4.35,
+    "term_spread_pct": -0.5,
+    "signal_regime": "INVERTED_YIELD_CURVE_HEDGE",
+    "action": "Enforce minimum reserve liquidity floor >= 50.0% SGOV"
+  },
+  "locked_changed_input_record": {
+    "parameter": "Objective Annual Return Hurdle",
+    "old_value": "5.03%",
+    "new_value": "4.69%",
+    "units": "percentage points",
+    "pre_run_prediction_ai_off": {
+      "allocation_shift": "SGOV weight will expand by +10 to +20 percentage points (55% -> 65-75%); PEJ will decline by -10 to -20 pts",
+      "volatility_direction": "Volatility will drop significantly below 7.00%",
+      "decision_effect": "Mandate still passes; decision remains PILOT"
+    },
+    "post_run_actual": {
+      "allocation": {
+        "SGOV": 0.7,
+        "RXI": 0.0,
+        "PEJ": 0.3
+      },
+      "shift_vs_base": {
+        "SGOV": "+15.0 pts",
+        "PEJ": "-15.0 pts"
+      },
+      "expected_return": 0.047,
+      "volatility": 0.0643,
+      "decision": "PILOT"
+    },
+    "reconciliation": "CONFIRMED: Actual SGOV shift of +15.0 pts fell squarely inside the predicted 10-20 point bracket; volatility dropped 3.17 pts. Confirms boundary cornering."
+  },
+  "final_recommendation": {
+    "committee_stance": "PILOT (NOT FULL ADOPT)",
+    "allocation_range_pct": "5.0% to 10.0% ($5.0M to $10.0M pilot tranche)",
+    "core_holding_pct": "90.0% to 95.0% in strategic 60/40 benchmark (60% RXI / 40% SGOV)",
+    "reasons": [
+      "40-point allocation jump across estimation windows (55% to 95% SGOV)",
+      "Zero diversification for global equities (RXI = 0.0%) with 45% loaded into leisure (PEJ)",
+      "Expected return clears hurdle by only 13 bps (5.16% vs 5.03%)"
+    ],
+    "operational_triggers": {
+      "quarterly_drift_threshold": "+/- 5.0 percentage points",
+      "tracking_error_ceiling": "3.50% realized tracking error vs 60/40",
+      "liquidity_covenant_floor": "$3.0 Million (3.0%) in SGOV"
+    },
+    "stop_condition": "Halt and reject adoption if infeasible, if weight shifts > 25 pts under 100 bps return shift, or if SGOV drops below $3.0M"
+  }
+}
