@@ -2,6 +2,8 @@
 
 An auditable Streamlit decision tool for a Meridian Foundation reserve-pilot decision. It compares transparent baselines with a 5%-grid constrained portfolio and makes the model's assumptions, limits, and implementation gates visible.
 
+The GitHub-readable canonical output is [`docs/CURRENT-VISIBLE-OUTPUT.md`](docs/CURRENT-VISIBLE-OUTPUT.md).
+
 ## Decision
 
 The tool is designed to support a **conditional pilot / do-not-implement-as-is** decision. It never treats a model output as an unconditional investment recommendation: the result must clear net return, liquidity, reserve, turnover, and any explicitly selected downside constraints.
