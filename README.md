@@ -26,6 +26,7 @@ Run the tests before relying on the result:
 
 - `app.py` — Streamlit user interface and downloadable decision artifacts.
 - `pages/1_Investment_Plan_Builder.py` — general educational plan builder with optional on-demand Yahoo Finance history.
+- `pages/2_Company_Research.py` — synchronized Business, Financials, and Valuation tabs for a user-entered ticker.
 - `portfolio_engine.py` — deterministic portfolio statistics, optimizer, mandate audit, turnover, and realized-return logic.
 - `prices.csv` — versioned monthly prices for SGOV, RXI, and PEJ.
 - `tests/` — repeatable calculation tests.
