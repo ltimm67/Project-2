@@ -7,6 +7,7 @@ __pycache__/
 # Local configuration and secrets
 .env
 .streamlit/secrets.toml
+.yfinance-cache/
 
 # OS/editor noise
 .DS_Store

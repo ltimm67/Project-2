@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import math
 from datetime import date
+from pathlib import Path
 
 import pandas as pd
 import streamlit as st
@@ -11,6 +12,11 @@ try:
     import yfinance as yf
 except ImportError:
     yf = None
+
+if yf is not None:
+    cache_dir = Path(__file__).resolve().parents[1] / ".yfinance-cache"
+    cache_dir.mkdir(exist_ok=True)
+    yf.set_tz_cache_location(str(cache_dir))
 
 
 st.set_page_config(page_title="Investment Plan Builder", page_icon="🧭", layout="wide")
