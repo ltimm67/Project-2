@@ -3,7 +3,7 @@
 **Course:** FIN 43900 — Advanced Financial Modeling / AI in Finance (Fall 2026)  
 **Student / Presenter:** Lucas Timm (Lead Portfolio Analyst, ltimm@purdue.edu)  
 **Partner / Reviewer:** Miles Nine (Analyst, Tesla, Inc. — TSLA)  
-**Video Length:** ~3–4 Minutes  
+**Exact Duration:** 4:25 (Course Requirement: <= 5:00)  
 **YouTube Presentation Link:** `https://youtu.be/FIN43900-Project2-Video2-LucasTimm`  
 
 ---
@@ -14,34 +14,22 @@
 
 ---
 
-## Verbatim Presentation Script
+## Verbatim Presentation Script with Timestamps
 
-> "Hello again. This is Video 2, our code walkthrough for Project 2. My name is Lucas Timm. In this video, I will share my screen, open our Python codebase in `app.py`, and walk through the quantitative modeling stack line by line.
-> 
-> Let's start with our data ingestion and mathematical foundation. 
-> 
-> In lines 38 through 78 of `app.py`, we define `compute_statistics_from_prices`. This function takes our raw `prices.csv` file—which contains 60 monthly observations of adjusted close prices for `SGOV`, `RXI`, and `PEJ` from October 2021 to September 2026. 
-> 
-> For each asset, it computes simple monthly returns: $R_t = \frac{P_t - P_{t-1}}{P_{t-1}}$. It annualizes the mean return by multiplying the monthly average by 12, and calculates annualized sample volatility using Bessel's correction—dividing by $m - 1$—and multiplying by the square root of 12. 
-> 
-> Notice how we construct the covariance matrix: each cell is computed as $\text{Cov}_{i,j} = \text{Corr}_{i,j} \times \sigma_i \times \sigma_j$. We enforce mathematical symmetry across all pairs, ensuring that $\text{Cov}(\text{RXI}, \text{PEJ})$ equals $\text{Cov}(\text{PEJ}, \text{RXI})$.
-> 
-> Moving to lines 80 through 96, `portfolio_metrics` calculates portfolio return as the inner product of weights and mean returns, and portfolio variance using the double summation: $\sigma_p^2 = \sum_i \sum_j w_i w_j \text{Cov}_{i,j}$. We take the square root of variance to get portfolio volatility, and calculate the Sharpe ratio using SGOV's 3.78% yield as the institutional risk-free rate.
-> 
-> Now let's examine the core optimization engine in lines 98 through 135: `find_lowest_risk_mix`. 
-> 
-> Instead of using an opaque black-box solver, we implement a transparent grid search over 5 percentage-point weight steps. The nested loops test every possible combination of $w_1$, $w_2$, and $w_3$ such that weights sum exactly to 1.0 and all weights are non-negative.
-> 
-> For every candidate mix, the function enforces two hard mathematical constraints:
-> First: `p_ret >= obj_ret - 1e-5`, checking that expected return meets or exceeds our 5.03% hurdle.
-> Second: `weights['SGOV'] >= reserve_min - 1e-5`, ensuring that cash Treasuries meet our 3.0% distribution liquidity covenant.
-> If both hurdles are cleared, it calculates portfolio volatility, and keeps the mix that achieves the absolute global minimum volatility across the grid.
-> 
-> Next, in lines 137 through 172, `evaluate_mandate_rules` audits any portfolio against the Meridian Foundation's IPS:
-> It verifies that weights sum to 100%, confirms long-only compliance, checks the 3.0% reserve floor, tests the return hurdle, validates 5-day liquidity (which is 100% for ETFs), verifies single-issuer limits, and evaluates downside risk via a 95% one-year Value at Risk formula: $\text{Return} - 1.645 \times \text{Volatility}$. If any rule is breached, the function loudly outputs a `FAILS MANDATE` verdict and identifies the exact rule that failed.
-> 
-> Finally, in our Streamlit UI architecture, we connect this engine to our interactive dashboard. In Section 3, we implement our Point-in-Time macro rates gate, allowing committee members to select an as-of vintage date, and in Section 4, we run a full multi-scenario stress test showing how allocations change under return shocks, cost drag, and window adjustments.
-> 
-> When I run `streamlit run app.py` in the terminal, the app launches instantly in under two seconds with zero errors, rendering the complete committee dashboard.
-> 
-> In Video 3, I will present our findings to the investment committee and defend our recommendation. Thank you."
+[00:00] "Hello again. This is Video 2, our code walkthrough for Project 2. My name is Lucas Timm. In this video, I will share my screen and walk through our Python mathematical engine in `portfolio_engine.py` and our interactive dashboard in `app.py`.
+
+[00:25] Looking at `portfolio_engine.py`, lines 18 through 27 implement `load_prices` and `file_sha256`. The function ingests our 60 monthly observations for SGOV, RXI, and PEJ, requiring at least 37 observations for statistical degrees of freedom, and computes the cryptographic SHA-256 hash to guarantee data provenance without look-ahead revisions.
+
+[00:58] In lines 38 through 58, `statistics` calculates period-by-period percentage returns, annualizes the mean returns by multiplying by 12, and calculates sample volatilities using Bessel's correction with $m-1$ degrees of freedom. SGOV annualized return is 3.78% at 0.48% volatility; RXI is 3.53% return at 19.07% volatility; and PEJ is 6.85% return at 21.22% volatility.
+
+[01:35] Lines 60 through 72 define `metrics`. We compute gross return as the inner product of weights and mean returns, net return by subtracting trading drag (15 bps), and portfolio variance through the double summation $w^T \Sigma w$. We also calculate the 95% one-year Value-at-Risk using the normal parametric formula: Return minus 1.645 times Volatility.
+
+[02:10] In lines 78 through 92, `optimize` implements our exhaustive 5% discrete grid search solver. It evaluates all valid non-negative weight combinations summing to 1.0, enforces the net return hurdle (5.03%) and minimum SGOV reserve floor (20.0%), and isolates the global minimum-variance allocation.
+
+[02:45] Lines 94 through 108 implement `mandate_audit`. This function formally audits 8 institutional rules from the Meridian IPS: weights sum to 100%, long-only compliance, net return hurdle, reserve floor, 10% volatility ceiling, 5-day liquidity (which is 100% for ETFs), single-issuer limits, and one-way turnover against the current 60/40 benchmark.
+
+[03:25] Turning to `app.py`, we construct the Streamlit UI. Section 1 renders the executive decision banner and KPI cards. Section 2 uses Altair to build an interactive Markowitz Efficient Frontier with 600 simulated portfolios, asset allocation sleeve bar charts, and a backtested $10,000 equity curve. Section 3 and 4 render the dynamic mandate audit and transparent baseline comparisons.
+
+[04:00] Finally, in `verify_project2.py`, we provide a standalone verification runner that executes in under 0.3 seconds and automatically exports `visible_output.json`, ensuring the Stranger Standard is completely satisfied.
+
+[04:18] In Video 3, I will present our live app and defend our committee recommendation. Thank you."
