@@ -29,4 +29,4 @@
 - **Repository accessibility:** Public (accessible to anyone with the link; no authentication required)
 - **Instructional-team access:** Verified unauthenticated access on November 23, 2026
 - **Access confirmed on:** November 23, 2026
-- **Final commit hash:** `9a51a28`
+- **Final commit hash:** `98c6e51`
