@@ -28,4 +28,4 @@
 - **Repository visibility:** `Private`
 - **Instructional-team access granted to:** Course Graders / TAs (identity published on Brightspace)
 - **Access confirmed on:** November 23, 2026
-- **Final commit hash:** `bb78269` (and latest sync)
+- **Final commit hash:** `14ba51d`
