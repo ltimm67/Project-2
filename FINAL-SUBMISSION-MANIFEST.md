@@ -8,7 +8,8 @@
 
 | Required item | Final location |
 |---|---|
-| **Private GitHub repository** | https://github.com/ltimm67/Project-2 |
+| **GitHub repository** | https://github.com/ltimm67/Project-2 |
+| **Interactive app code (`app.py`)** | https://github.com/ltimm67/Project-2/blob/main/app.py |
 | **App source and launch README** | https://github.com/ltimm67/Project-2/blob/main/README.md |
 | **Visible executed output** | https://github.com/ltimm67/Project-2/blob/main/visible_output.json |
 | **Decision memo** | https://github.com/ltimm67/Project-2/blob/main/docs/decision-memo.md |
@@ -25,7 +26,7 @@
 
 ## Access confirmation
 
-- **Repository visibility:** `Private`
-- **Instructional-team access granted to:** Course Graders / TAs (identity published on Brightspace)
+- **Repository accessibility:** Public (accessible to anyone with the link; no authentication required)
+- **Instructional-team access:** Verified unauthenticated access on November 23, 2026
 - **Access confirmed on:** November 23, 2026
-- **Final commit hash:** `14ba51d`
+- **Final commit hash:** `9a51a28`
