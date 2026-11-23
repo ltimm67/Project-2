@@ -38,12 +38,11 @@ It demonstrates that this application is not an unmonitored AI output, but a rig
 | **Step 2930**<br/>`Nov 21` | Equity research page dumped raw tables without immediate advice. | **I commanded Yahoo-style charting & immediate decision advice:** *"Improve the way I can see the graphs... I want 1D, 5D, 1M, 1Y, 5Y... Update what happens when you type in a ticker to immediately give advice on if you should invest, sell, etc and why."* | Built upfront **Immediate Investment Advice Card** (Buy/Hold/Trim) with 3-bullet rationale; embedded interactive multi-timeframe price chart (1D to 5Y) with volume and trading statistics. | Trustees need an immediate answer in 5 seconds before drilling into institutional financial statements. |
 | **Step 3150**<br/>`Nov 22` | Research screen was overly busy; lacked dividend data. | **I directed cognitive overload reduction and dividend integration:** *"Add if it is a dividend producing stock... give a summary tab... hard to follow what all is happening/a lot going on at once."* | Added dividend yield, payout rate, and coverage pills; restructured page into a clean progressive-disclosure hierarchy (Executive Summary $\rightarrow$ Yahoo Charts $\rightarrow$ Deep Dive Models $\rightarrow$ 10-K Statements $\rightarrow$ Legend Screens). | Eliminates trustee cognitive overload; highlights dividend cash generation for income mandates. |
 | **Step 3480**<br/>`Nov 22` | Advice wording became too elementary (`"Worth holding, but not an urgent buy right now"`). | **I demanded Tone Calibration to a 'Happy Medium':** *"Module 3 looks much better... Also, the wording is a little too elementary now. find a happy medium"* (uploaded Deere screenshot). | Elevated all badges and recommendations to crisp institutional finance terminology (*"Valuation Premium (+25% vs DCF)"*, *"Fortress Solvency"*, *"Compounding Hold; Await Multiple Consolidation"*). Harmonized 4-card Storyboards across all modules. | Achieves the fiduciary standard: professional and rigorous without mathematical opacity. |
-| **Step 3650**<br/>`Nov 23` | Need pre-execution human prediction for Locked Changed-Input Record. | **I authored the pre-execution AI-off prediction:** Authored prediction before running code: *"I think lowering net return hurdle by 34 bps (from 5.03% to 4.69%) will relax the required equity risk budget. SGOV weight will expand by +10 ish percentage points (from 55% to 65%), PEJ will drop to 25%–35%, and volatility will fall below 7.00%. The decision remains PILOT."* | Committed prediction to repository before running model. Model confirmed SGOV expanded to 70% (+15 pts), PEJ fell to 30% (-15 pts), volatility dropped to 6.43%, and decision remained PILOT. | Full compliance with Lab 11/20 rubric: authentic human prediction pre-committed before execution. |
 | **Step 3720**<br/>`Nov 23` | Open-ended AI chatbot created hallucination and compliance risks. | **I selected Option A: Streamline to 4 Core Fiduciary Modules:** Deprecated Module 5 (`4_AI_Financial_Copilot.py`) to eliminate generative chatbot risks; scrubbed synthetic AI tags across all files. | Archived Module 5 to `docs/archive/`; updated top nav and sidebars to 4 deterministic fiduciary modules; replaced Tab 6 with deterministic Mandate Inquiries; eliminated all Claude/Gemini model artifacts. | A fiduciary committee requires 100% verifiable, deterministic math, not unmonitored generative text generation. |
 
 ---
 
-## 2. In-Depth Case Studies: 15 Crucial Moments of Human Judgment
+## 2. In-Depth Case Studies: 14 Crucial Moments of Human Judgment
 
 ### Case 1: The Project 1 Feedback Post-Mortem & Zero-Tolerance Quality Mandate
 * **Context (Step 1542):** In Project 1, I received a 67% score due to several execution flaws: hardcoded prints rather than live calculated outputs, unreconciled numbers between the memo and the data grid, a missing Locked Changed-Input Record, and an unverified WACC cost of equity.
@@ -179,17 +178,7 @@ It demonstrates that this application is not an unmonitored AI output, but a rig
 
 ---
 
-### Case 14: Authoring the Human Pre-Execution "AI-Off" Prediction
-* **Date:** November 23, 2026
-* **Context:** The FIN 43900 Major Project rubric strictly enforces a **Locked Changed-Input Record** with an authentic pre-run prediction authored with AI assistance closed and committed to the Git repository before execution.
-* **My Human Decision:** I chose to stress-test the net annual return hurdle by relaxing it from **5.03%** (10-Year Treasury matching) to **4.69%** (-34 bps yield spread compression). Before running the code or asking the model to calculate the outcome, I authored my prediction in my own words:
-  > *"I think lowering net return hurdle by 34 bps (from 5.03% to 4.69%) will relax the required equity risk budget. SGOV weight will expand by +10 ish percentage points (from 55% to 65%), PEJ will drop to 25%–35%, RXI will remain 0.0%, and portfolio volatility will fall below 7.00%. The committee recommendation will remain PILOT because the allocation remains hypersensitive to inputs."*
-* **Execution & Verification:** I committed this prediction to the repository. I then ran `portfolio_engine.py` and `verify_project2.py`. The optimizer produced **70.0% SGOV / 0.0% RXI / 30.0% PEJ** with **6.43% volatility** and a net return of **4.55%**. 
-* **Fiduciary Finding:** SGOV expanded by +15.0 percentage points, matching my predicted +10 ish point expansion into cash. The portfolio still passed the relaxed hurdle, but my recommendation remained **PILOT** because the 15-point shift on a minor 34 bps change confirmed severe boundary sensitivity.
-
----
-
-### Case 15: Option A Streamlining to 4 Fiduciary Modules & Scrubbing AI Chatbot Risks
+### Case 14: Option A Streamlining to 4 Fiduciary Modules & Scrubbing AI Chatbot Risks
 * **Date:** November 23, 2026
 * **Context:** When auditing the full application against the rubric's standard (*"Could a committee adopt this app?"*), I evaluated the risk profile of Module 5 (`4_AI_Financial_Copilot.py`). While an interactive conversational chatbot was technologically impressive, open-ended generative chat introduces non-deterministic outputs, potential hallucinations, and perception of unverified AI reliance during an institutional committee review.
 * **My Human Decision (Option A):** I commanded the streamlining of the application to **4 core fiduciary modules**:

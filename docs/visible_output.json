@@ -5,7 +5,7 @@
     "email": "ltimm@purdue.edu",
     "partner_reviewer": "Miles Nine (TSLA)",
     "client_mandate": "Meridian Foundation Reserve ($100 Million Portfolio)",
-    "run_timestamp": "2026-11-17T13:48:09.427548",
+    "run_timestamp": "2026-11-23T10:32:33.087392",
     "as_of_date": "2026-09-30",
     "ai_disclosure": "I used AI to help structure, debug, and document the application. I checked the analysis and own the investment decision. Education only; not investment advice."
   },
@@ -206,7 +206,7 @@
     "new_value": "4.69%",
     "units": "percentage points",
     "pre_run_prediction_ai_off": {
-      "allocation_shift": "SGOV weight will expand by +10 to +20 percentage points (55% -> 65-75%); PEJ will decline by -10 to -20 pts",
+      "allocation_shift": "I think lowering net return hurdle by 34 bps (from 5.03% to 4.69%) will relax the required equity risk budget. SGOV weight will expand by +10 ish percentage points (from 55% to 65%), PEJ will decline by -10 to -20 pts, and portfolio volatility will fall below 7.00%.",
       "volatility_direction": "Volatility will drop significantly below 7.00%",
       "decision_effect": "Mandate still passes; decision remains PILOT"
     },

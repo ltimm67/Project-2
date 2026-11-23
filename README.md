@@ -96,10 +96,7 @@ project-2-investment-management-app/
     ├── decision-memo.md                # Institutional investment committee decision memo
     ├── validation-and-ai-use.md        # Data card, stress matrix & locked changed-input record
     ├── manifest.md                     # Timestamped grading navigation manifest
-    ├── LAB20-READINESS.md              # Lab 20 readiness defense report
-    ├── transcript-video-1.txt          # Video 1 verbatim transcript
-    ├── transcript-video-2.txt          # Video 2 verbatim transcript
-    └── transcript-video-3.txt          # Video 3 verbatim transcript
+    └── visible_output.json             # Execution artifact copy
 ```
 
 ---

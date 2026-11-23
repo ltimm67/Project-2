@@ -23,7 +23,6 @@
 | **Dependencies** | [`requirements.txt`](../requirements.txt) | **Complete** | Clean, minimal dependencies (`streamlit`, `pandas`). |
 | **Decision Memo** | [`docs/decision-memo.md`](./decision-memo.md) | **Complete** | 8-section institutional memo defending the PILOT stance, 5-10% allocation range, and monitoring triggers. |
 | **Validation & AI Use** | [`docs/validation-and-ai-use.md`](./validation-and-ai-use.md) | **Complete** | Validation audit log, FRED data card, baseline verdicts, and Locked Changed-Input Record. |
-| **Lab 20 Readiness Report** | [`lab-20-project2-readiness.md`](../../lab-20-project2-readiness.md) | **Complete** | Complete Lab 20 checkout report documenting cold run, code explanation, and checkout links. |
 
 ---
 
