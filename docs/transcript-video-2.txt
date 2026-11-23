@@ -1,8 +1,89 @@
-Meeting with Lucas Anthony Timm-20261123_125500-Meeting Recording
-November 23, 2026, 5:55PM
-4m 48s
+================================================================================
+MANDATORY OPENING STATEMENTS
+================================================================================
+Mandatory AI Disclosure:
+I used Google Antigravity (powered by Gemini) to assist with software scaffolding,
+mathematical grid-search optimization routines, interactive Streamlit UI
+components, and markdown documentation formatting. I manually audited and
+verified every quantitative calculation, validated the covariance and returns
+matrices against raw ETF observations, designed the institutional stress
+scenarios, and formulated the final fiduciary recommendation. I own the
+investment decision in full.
+
+Academic Disclaimer:
+Built with AI assistance for academic evaluation in FIN 43900 (Purdue University);
+a learning demonstration, not investment advice.
+================================================================================
+
+Meeting Recording: Meeting with Lucas Anthony Timm-20261123_125500
+Date: November 23, 2026, 5:55PM
+Duration: 4m 48s
+YouTube: https://youtu.be/mJVCupZrEZU
+Title: FIN 43900 Project 2 — Video 2: Code Walkthrough & Optimization Engine
 
 Lucas Anthony Timm started transcription
+
 Lucas Anthony Timm   0:04
-All right, hello, I'm back. We can stand here. So I'll start off by saying, once again.Used AI Gemini Pro to help with the, you know, stress testing, the formatting, the stream like complications, things like that, but ultimately, you know, analysis and decisions were authorized, finalized, and reviewed.me, but this is educational only. This is not investment advice. So take that all with a grain of salt. So jumping right into the code, this is video 2, sorry, just forgot to say that. This is code, code line by line to get into why and what went into the code. So here we have the assets, as you can see.those. First thing we did was load the prices to ensure that it ingested the 60 monthly observations that we talked about in the previous video with this constraint that at least 37 monthly observations are required for various reasons.So jumping into the defining the monthly returns, we are sorry, the statistics, so we analyzed the annual returns by taking a times 12.because before it was monthly, but then computed this annualized expected returns, volatility, covariance, correlation of the return series by doing various mathematical things with the help of AI. Then I went into defining the metrics, so you're calculating the institutional portfolio performance and the risk metrics.So as you can see, the gross is the sum of the weights times the annual returns. The variance is the sum of the weights times covariance times the weights for the verb B, which is the definition of covariance there. Ultimately, the volatility and the Sharpe ratio, which is the gross minus the risk-free rate.and ultimately getting the various, the normal variance rate, the 95 percentile there. So all right now in code, calculated.Pretty straightforward stuff. And then, you know, went into the optimization. So exhausting the 5% grid search optimizer, what I talked about last video, and doing that for the minimum volatility under the reserve constraints.Which is all laid out here, so you know, taking gross return and the hurdle, ultimately to finding the hurdle there.Going into the audit, so we bought in the 8.institutional audit, band-aid constraints, this runs through those. Make sure that, you know, the wait 7 to 100, long only, target return hurdle, net return hurdle, make sure there's a reserve for, you know, volatility limit, the five-day liquidity.You can read the rest, but ensuring that all those constraints are met, and ultimately, we'll show you that they are, but doing that, and then also, you know, this normal VAR loss variance, so...So yeah, this is, you know, walk through the code. It continues, but for now, I'll jump over to app.py and show you a little bit of the testing. So, open up this terminal, I already have it copied, but going into project 2.py.running that, it immediately bumps out this table, which we talked about, you know, in the previous video of this equal weight and the inverse volatility things that it ultimately fails, which was why we, you know, chose to go into the 5 to 10% range rather than the increased 100%.You get the actual trade water, the SCOV, the RXI, and the PEJ here, which ultimately matches with what we talked about last video. And then to show you this as well.all nine tests in .011 seconds, just to verify that. So that should be good there. So thank you. And in video three, I will run through the app that I created and show you how that works, how to use it, and ultimately just confirm.to the committee about our decision that we made. Thank you.
+All right, hello, I'm back. Lucas Timm here.
+
+So I'll start off by saying, once again, used AI Gemini Pro to help with the,
+you know, stress testing, the formatting, the Streamlit components, things
+like that, but ultimately, you know, analysis and decisions were authorized,
+finalized, and reviewed by me. But this is educational only. This is not
+investment advice, so take that all with a grain of salt.
+
+So jumping right into the code, this is Video 2, sorry, just forgot to say that.
+This is code line by line to get into why and what went into the code.
+
+So here we have the assets, as you can see those. First thing we did was load
+the prices to ensure that it ingested the 60 monthly observations that we
+talked about in the previous video with this constraint that at least 37 monthly
+observations are required for various reasons.
+
+So jumping into defining the monthly returns—or sorry, the statistics. So we
+annualized the annual returns by taking it times 12, because before it was monthly,
+but then computed these annualized expected returns, volatility, covariance,
+correlation of the return series by doing various mathematical operations with
+the help of AI.
+
+Then I went into defining the metrics, so calculating the institutional
+portfolio performance and the risk metrics. So as you can see, the gross is
+the sum of the weights times the annual returns. The variance is the sum of
+the weights times covariance times the weights, which is the definition of
+covariance w^T \Sigma w there. Ultimately, the volatility and the Sharpe ratio,
+which is the gross minus the risk-free rate, and ultimately getting the normal
+VaR loss rate at the 95th percentile there. So all right now in code, calculated.
+Pretty straightforward stuff.
+
+And then, you know, went into the optimization. So exhausting the 5% grid
+search optimizer, what I talked about last video, and doing that for the minimum
+volatility under the reserve constraints. Which is all laid out here, taking
+gross return and the hurdle, ultimately finding the hurdle there.
+
+Going into the audit: So we brought in the 8 institutional audit mandate
+constraints, this runs through those: Make sure that the weights sum to 100%,
+long-only, target return hurdle, net return hurdle, make sure there's a
+reserve floor, volatility limit, the five-day liquidity. You can read the rest,
+but ensuring that all those constraints are met, and ultimately we'll show you
+that they are, and then also this normal VaR loss metric.
+
+So yeah, this is the walkthrough of the code. It continues, but for now I'll
+jump over to app.py and show you a little bit of the testing.
+
+So open up this terminal, I already have it copied, but going into
+verify_project2.py: Running that, it immediately bumps out this table, which we
+talked about in the previous video, of this Equal Weight and the Inverse
+Volatility baselines that ultimately fail, which was why we chose to go into the
+5% to 10% range rather than the full 100%.
+
+You get the actionable trade blotter—the SGOV, the RXI, and the PEJ here—which
+ultimately matches with what we talked about last video.
+
+And then to show you this as well: all nine unit tests pass in 0.011 seconds,
+just to verify that.
+
+So that should be good there. So thank you. And in Video 3, I will run through
+the app that I created and show you how that works, how to use it, and
+ultimately just confirm to the committee our decision that we made. Thank you.
+
 Lucas Anthony Timm stopped transcription
