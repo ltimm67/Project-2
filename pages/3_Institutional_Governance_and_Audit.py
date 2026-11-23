@@ -342,50 +342,28 @@ with tab_videos:
         st.markdown("#### Video 1: Research Evolution & AI Check")
         st.caption("Duration: 3:22 | Closed Captions Enabled")
         st.markdown("[▶️ Watch Video 1 on YouTube (3:22)](https://youtu.be/3y5cM4I0CYg)")
-        with st.expander("Read Video 1 Transcript (Timestamped)"):
-            st.markdown(
-                """
-                - **[00:04]** *Speaker: Lucas Timm* — Welcome. I am the lead analyst here for the $100 million reserve mandate Lab 13.
-                - **[00:15]** *Mandatory Statements* — Educational demonstration only; Google Antigravity and Gemini Pro used for scaffolding, optimization, and Streamlit components; all decisions finalized by me.
-                - **[00:50]** *Research Evolution* — Shifted from naive static optimization to recognizing error maximization.
-                - **[01:20]** *Stress Test Discovery* — Shortening the window to 36 months caused SGOV to jump by 40 percentage points into cash.
-                - **[01:50]** *Checked AI Output* — AI suggested continuous floating-point quadratic solver with 0 correlation; audited and corrected to 5% discrete rebalancing steps and proved positive correlation with equities from 2022–2023 rate hikes.
-                """
-            )
+        with st.expander("Read Video 1 Transcript (Verbatim)"):
+            t1_path = root_dir / "docs" / "transcript-video-1.txt"
+            if t1_path.exists():
+                st.text(t1_path.read_text(encoding="utf-8"))
             
     with v2:
         st.markdown("#### Video 2: Code Walkthrough & Optimization Engine")
         st.caption("Duration: 4:48 | Closed Captions Enabled")
         st.markdown("[▶️ Watch Video 2 on YouTube (4:48)](https://youtu.be/mJVCupZrEZU)")
-        with st.expander("Read Video 2 Transcript (Timestamped)"):
-            st.markdown(
-                r"""
-                - **[00:04]** *Mandatory Statements* — Educational demonstration only; AI assistance from Gemini Pro; all architecture and decisions reviewed by me.
-                - **[00:30]** *Data Ingestion & Statistics* — Loading 60 monthly observations (requiring ≥37); computing annualized returns, sample Bessel volatility, covariance matrix.
-                - **[01:30]** *Metrics & Optimization* — Gross return, fee drag subtraction, variance $w^T \Sigma w$, Sharpe ratio, and 95% normal VaR loss.
-                - **[02:15]** *Grid Search Solver* — Exhaustive 5% discrete grid search evaluating non-negative weights clearing hurdle and reserve floors.
-                - **[02:45]** *Institutional Audit* — 8 mandate rules tested in `mandate_audit`.
-                - **[03:30]** *Cold Run & Tests* — `verify_project2.py` terminal execution and all 9 unit tests passing in 0.011s.
-                """
-            )
+        with st.expander("Read Video 2 Transcript (Verbatim)"):
+            t2_path = root_dir / "docs" / "transcript-video-2.txt"
+            if t2_path.exists():
+                st.text(t2_path.read_text(encoding="utf-8"))
             
     with v3:
-        st.markdown("#### Video 3: Committee Presentation (Live App)")
+        st.markdown("#### Video 3: Committee Defense (Live App)")
         st.caption("Duration: 5:06 | Closed Captions Enabled")
         st.markdown("[▶️ Watch Video 3 on YouTube (5:06)](https://youtu.be/_aaUnLdPBl0)")
-        with st.expander("Read Video 3 Transcript (Timestamped)"):
-            st.markdown(
-                """
-                - **[00:04]** *Live Opening & AI Statement* — Opening with the live Streamlit app running; educational demonstration for FIN 43900.
-                - **[00:40]** *Executive Storyboard* — The $100M reserve problem, current 60/40 mix, and why full $100M adoption is rejected in favor of a 5% to 10% pilot tranche.
-                - **[01:10]** *Base Case & 36M Stress Test* — 55% SGOV / 45% PEJ base; clicking 36M stress button shows the 40-point jump to 95% SGOV.
-                - **[01:45]** *Mandate Audit & Baseline Autopsy* — 8 rules cleared; explaining why Equal Weight and Inverse Volatility fail real preservation covenants.
-                - **[02:20]** *Stress Matrix & Stop Condition* — Regime instability limit (>25% shift) and liquidity covenants.
-                - **[03:00]** *Locked Changed-Input Test* — Adjusting hurdle to 4.69%, showing +15 pt SGOV shift to 70% and vol drop to 6.43%.
-                - **[03:45]** *Operational Monitoring Triggers* — Rebalancing drift (±5.0%), tracking error (3.50% TE / 12% Vol), liquidity floor ($3.0M).
-                - **[04:30]** *Multi-Module Capabilities* — Brief tour of Module 2 Custom Builder, Module 3 Equity Diligence, and Module 4 Audit Cockpit.
-                """
-            )
+        with st.expander("Read Video 3 Transcript (Verbatim)"):
+            t3_path = root_dir / "docs" / "transcript-video-3.txt"
+            if t3_path.exists():
+                st.text(t3_path.read_text(encoding="utf-8"))
 
 # -----------------------------------------------------------------------------
 # TAB 4: RUBRIC COMPLIANCE

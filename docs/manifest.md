@@ -33,7 +33,7 @@ All three required student presentations are recorded with closed captions / tra
 ### Video 1: Research Evolution & System Design
 - **Duration:** 3:22 (Requirement: ~3:00)
 - **YouTube Link:** `https://youtu.be/3y5cM4I0CYg` *(Presentation Recording with Closed Captions Enabled)*
-- **Transcript File:** [`docs/video-1-transcript.md`](./video-1-transcript.md) & [`docs/transcript-video-1.txt`](./transcript-video-1.txt)
+- **Transcript File:** [`docs/transcript-video-1.txt`](./transcript-video-1.txt)
 - **Timestamped Evidence Index:**
   - `0:00 - 0:25`: Mandatory Opening Statements (AI usage disclosure & educational disclaimer).
   - `0:25 - 1:15`: Research Evolution (Transition from static optimization to Markowitz "error maximization").
@@ -44,7 +44,7 @@ All three required student presentations are recorded with closed captions / tra
 ### Video 2: Code Walkthrough & Optimization Engine
 - **Duration:** 4:48 (Requirement: $\le 5:00$)
 - **YouTube Link:** `https://youtu.be/mJVCupZrEZU` *(Presentation Recording with Closed Captions Enabled)*
-- **Transcript File:** [`docs/video-2-transcript.md`](./video-2-transcript.md) & [`docs/transcript-video-2.txt`](./transcript-video-2.txt)
+- **Transcript File:** [`docs/transcript-video-2.txt`](./transcript-video-2.txt)
 - **Timestamped Evidence Index:**
   - `0:00 - 0:20`: Mandatory Opening Statements & repository architecture.
   - `0:20 - 1:15`: Mathematical Foundation (`load_prices`, monthly returns, annualized returns, Bessel volatility, covariance).
@@ -56,7 +56,7 @@ All three required student presentations are recorded with closed captions / tra
 ### Video 3: Investment Committee Defense & Final Recommendation
 - **Duration:** 5:06 (Requirement: $\approx 5:00$)
 - **YouTube Link:** `https://youtu.be/_aaUnLdPBl0` *(Presentation Recording with Closed Captions Enabled)*
-- **Transcript File:** [`docs/video-3-transcript.md`](./video-3-transcript.md) & [`docs/transcript-video-3.txt`](./transcript-video-3.txt)
+- **Transcript File:** [`docs/transcript-video-3.txt`](./transcript-video-3.txt)
 - **Timestamped Evidence Index:**
   - `0:00 - 0:30`: Live Running Streamlit App Opening & Committee Introduction.
   - `0:30 - 1:20`: Mandate review & Executive Storyboard defending the 5% to 10% pilot recommendation.
