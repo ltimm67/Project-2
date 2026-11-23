@@ -1383,16 +1383,32 @@ with tab_counsel:
     cmd_col1, cmd_col2, cmd_col3, cmd_col4 = st.columns(4)
     cmd_col5, cmd_col6, cmd_col7, _ = st.columns(4)
 
-    counsel_cmd = None
-    if cmd_col1.button("📋 /diligence:brief", width="stretch"): counsel_cmd = "/diligence:brief"
-    if cmd_col2.button("🧠 /diligence:think", width="stretch"): counsel_cmd = "/diligence:think"
-    if cmd_col3.button("🔍 /diligence:implies", width="stretch"): counsel_cmd = "/diligence:implies"
-    if cmd_col4.button("🥊 /diligence:challenge", width="stretch"): counsel_cmd = "/diligence:challenge"
-    if cmd_col5.button("🧙 /diligence:missing", width="stretch"): counsel_cmd = "/diligence:missing"
-    if cmd_col6.button("🛡️ /diligence:hold", width="stretch"): counsel_cmd = "/diligence:hold"
-    if cmd_col7.button("📝 /diligence:memo", width="stretch"): counsel_cmd = "/diligence:memo"
+    if "counsel_input_box" not in st.session_state:
+        st.session_state["counsel_input_box"] = ""
 
-    counsel_input = st.text_input(f"Or enter custom analysis directive for {ticker_input}:", value=counsel_cmd or "", placeholder="e.g. /diligence:implies or /diligence:missing")
+    if cmd_col1.button("📋 /diligence:brief", width="stretch"):
+        st.session_state["counsel_input_box"] = "/diligence:brief"
+        st.rerun()
+    if cmd_col2.button("🧠 /diligence:think", width="stretch"):
+        st.session_state["counsel_input_box"] = "/diligence:think"
+        st.rerun()
+    if cmd_col3.button("🔍 /diligence:implies", width="stretch"):
+        st.session_state["counsel_input_box"] = "/diligence:implies"
+        st.rerun()
+    if cmd_col4.button("🥊 /diligence:challenge", width="stretch"):
+        st.session_state["counsel_input_box"] = "/diligence:challenge"
+        st.rerun()
+    if cmd_col5.button("🧙 /diligence:missing", width="stretch"):
+        st.session_state["counsel_input_box"] = "/diligence:missing"
+        st.rerun()
+    if cmd_col6.button("🛡️ /diligence:hold", width="stretch"):
+        st.session_state["counsel_input_box"] = "/diligence:hold"
+        st.rerun()
+    if cmd_col7.button("📝 /diligence:memo", width="stretch"):
+        st.session_state["counsel_input_box"] = "/diligence:memo"
+        st.rerun()
+
+    counsel_input = st.text_input(f"Or enter custom analysis directive for {ticker_input}:", key="counsel_input_box", placeholder="e.g. /diligence:implies or /diligence:missing")
 
     if counsel_input:
         cmd_lower = counsel_input.lower()

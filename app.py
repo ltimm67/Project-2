@@ -303,52 +303,48 @@ with st.sidebar:
     st.header("🎯 Mandate Governance Limits")
     st.caption("⚡ 1-Click Mandate Scenario Presets:")
 
-    # Scenario Presets state
-    if "p_hurdle" not in st.session_state:
-        st.session_state.p_hurdle = 5.03
-    if "p_window" not in st.session_state:
-        st.session_state.p_window = "All 60 Months (2021-10 to 2026-09)"
-    if "p_basis" not in st.session_state:
-        st.session_state.p_basis = "Gross Expected Return (5.03% FRED DGS10 Target)"
+    # Scenario Presets state initialization
+    if "radio_est_window" not in st.session_state:
+        st.session_state["radio_est_window"] = "All 60 Months (2021-10 to 2026-09)"
+    if "radio_hurdle_basis" not in st.session_state:
+        st.session_state["radio_hurdle_basis"] = "Gross Expected Return (5.03% FRED DGS10 Target)"
+    if "num_hurdle_val" not in st.session_state:
+        st.session_state["num_hurdle_val"] = 5.03
 
     col_pre1, col_pre2 = st.columns(2)
     if col_pre1.button("📌 Base Case (5.03%)", key="btn_pre_base", width="stretch", help="Canonical 60-Month Run with 5.03% DGS10 hurdle."):
-        st.session_state.p_hurdle = 5.03
-        st.session_state.p_window = "All 60 Months (2021-10 to 2026-09)"
-        st.session_state.p_basis = "Gross Expected Return (5.03% FRED DGS10 Target)"
+        st.session_state["radio_est_window"] = "All 60 Months (2021-10 to 2026-09)"
+        st.session_state["radio_hurdle_basis"] = "Gross Expected Return (5.03% FRED DGS10 Target)"
+        st.session_state["num_hurdle_val"] = 5.03
         st.rerun()
 
     if col_pre2.button("⚡ Changed (4.69%)", key="btn_pre_changed", width="stretch", help="Changed-input sensitivity run with 4.69% hurdle."):
-        st.session_state.p_hurdle = 4.69
-        st.session_state.p_window = "All 60 Months (2021-10 to 2026-09)"
-        st.session_state.p_basis = "Gross Expected Return (5.03% FRED DGS10 Target)"
+        st.session_state["radio_est_window"] = "All 60 Months (2021-10 to 2026-09)"
+        st.session_state["radio_hurdle_basis"] = "Gross Expected Return (5.03% FRED DGS10 Target)"
+        st.session_state["num_hurdle_val"] = 4.69
         st.rerun()
 
     if st.button("🌪️ 36-Month Regime Stress Test", key="btn_pre_stress", width="stretch", help="Shortened 36-month lookback window stress test."):
-        st.session_state.p_hurdle = 5.03
-        st.session_state.p_window = "Last 36 Months (Regime Shift Stress)"
-        st.session_state.p_basis = "Gross Expected Return (5.03% FRED DGS10 Target)"
+        st.session_state["radio_est_window"] = "Last 36 Months (Regime Shift Stress)"
+        st.session_state["radio_hurdle_basis"] = "Gross Expected Return (5.03% FRED DGS10 Target)"
+        st.session_state["num_hurdle_val"] = 5.03
         st.rerun()
 
     st.caption("🎛️ Custom Fine-Tuning Sliders:")
 
     window_options = ["All 60 Months (2021-10 to 2026-09)", "Last 36 Months (Regime Shift Stress)"]
-    window_idx = window_options.index(st.session_state.p_window) if st.session_state.p_window in window_options else 0
     
     estimation_window = st.radio(
         "Estimation Window",
         window_options,
-        index=window_idx,
         key="radio_est_window",
     )
     last_36 = "36 Months" in estimation_window
 
     basis_options = ["Gross Expected Return (5.03% FRED DGS10 Target)", "Net Return (After 15 bps Cost Drag)"]
-    basis_idx = 0 if "Gross" in st.session_state.p_basis else 1
     hurdle_basis = st.radio(
         "Hurdle Evaluation Basis",
         basis_options,
-        index=basis_idx,
         key="radio_hurdle_basis",
         help="FRED DGS10 provides the baseline asset hurdle (5.16% gross clears 5.03%). Switch to Net Return to inspect post-friction performance.",
     )
@@ -358,7 +354,6 @@ with st.sidebar:
         "Target Return Hurdle (% annual)",
         min_value=3.0,
         max_value=12.0,
-        value=float(st.session_state.p_hurdle),
         step=0.01,
         help="FRED DGS10 10-Year Treasury Yield point-in-time hurdle rate.",
         key="num_hurdle_val",
@@ -442,9 +437,9 @@ if not is_feasible:
     )
     col_rec1, col_rec2 = st.columns([1, 2])
     if col_rec1.button("🔄 Restore Verified Base Case (5.03% / 60-Mo)", key="btn_restore_feasible"):
-        st.session_state.p_hurdle = 5.03
-        st.session_state.p_window = "All 60 Months (2021-10 to 2026-09)"
-        st.session_state.p_basis = "Gross Expected Return (5.03% FRED DGS10 Target)"
+        st.session_state["radio_est_window"] = "All 60 Months (2021-10 to 2026-09)"
+        st.session_state["radio_hurdle_basis"] = "Gross Expected Return (5.03% FRED DGS10 Target)"
+        st.session_state["num_hurdle_val"] = 5.03
         st.rerun()
     
     # Fallback to nearest portfolio so that all 6 tabs remain fully visible and informative
@@ -1509,15 +1504,20 @@ with main_tab6:
     st.caption("Ask questions about this portfolio, the 40-point shift, why RXI is 0%, or why a pilot was recommended.")
     
     col_qp1, col_qp2, col_qp3 = st.columns(3)
-    q_sel = None
+    if "mandate_q_input" not in st.session_state:
+        st.session_state["mandate_q_input"] = ""
+
     if col_qp1.button("🎯 Why Pilot vs Full Adopt?", width="stretch"):
-        q_sel = "Why did the optimizer recommend a pilot?"
+        st.session_state["mandate_q_input"] = "Why did the optimizer recommend a pilot?"
+        st.rerun()
     if col_qp2.button("📊 Explain 40-Point Window Jump", width="stretch"):
-        q_sel = "Explain the 40-point window instability."
+        st.session_state["mandate_q_input"] = "Explain the 40-point window instability."
+        st.rerun()
     if col_qp3.button("📉 Why is RXI 0.0%?", width="stretch"):
-        q_sel = "Why is RXI 0%?"
+        st.session_state["mandate_q_input"] = "Why is RXI 0%?"
+        st.rerun()
         
-    quick_q = st.text_input("Or enter custom analytical question on this mandate:", value=q_sel or "", placeholder="e.g. Why did the optimizer recommend a pilot? or Why is RXI 0%?")
+    quick_q = st.text_input("Or enter custom analytical question on this mandate:", key="mandate_q_input", placeholder="e.g. Why did the optimizer recommend a pilot? or Why is RXI 0%?")
     if quick_q:
         q_low = quick_q.lower()
         if any(k in q_low for k in ["pilot", "adopt", "recommendation"]):
