@@ -30,11 +30,6 @@ In Edition A, the model was an unconstrained statistical optimizer that naively 
 
 The pivotal justification for rejecting full adoption was the discovery that shortening the sample window to 36 months caused the optimal SGOV allocation to jump by 40 percentage points. Under institutional mandate governance, this extreme parameter sensitivity strictly disqualifies the strategy from full capital deployment until an active volatility dampener is piloted.
 
-### Audited & Corrected AI Output (SciPy Solver & Rate-Hike Correlation)
-During development, the AI assistant suggested using a continuous SciPy quadratic solver with floating-point weights (generating an unconstrained mix of 54.68% SGOV and 45.32% PEJ) and assumed zero correlation between cash and equities. I audited and corrected this output for two reasons:
-1. **Discrete 5% Rebalancing Grid:** Institutional committees operate on discrete 5% rebalancing steps rather than decimal-point false precision. I rewrote the engine to use an exhaustive discrete 5% grid search.
-2. **Rate-Hike Correlation Audit:** The AI initially assumed zero correlation between SGOV and equities. I manually audited `prices.csv` and proved that SGOV had a positive 0.26 correlation with RXI and 0.17 with PEJ due to the 2022–2023 rate hikes. Correcting this correlation in code ensured our risk metrics reflected true market behavior.
-
 ---
 
 ## 3. Data Ledger & Independent Source Verification
