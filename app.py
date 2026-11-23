@@ -665,6 +665,22 @@ with main_tab1:
 
     st.caption("Friction Check: Transitioning $100M requires $60M of selling in RXI and $45M of buying in PEJ (30% one-way turnover = $30M volume). At 15 bps fee drag, estimated friction is $45,000. For the $10M pilot, friction is bounded at $4,500.")
 
+    st.markdown(
+        """
+        <div style="background-color: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 14px 18px; margin: 12px 0 18px 0;">
+            <div style="font-weight: 700; color: #166534; font-size: 0.95rem; margin-bottom: 6px;">
+                🛡️ Pilot Mandate Operational Governance Triggers ($10M Tranche):
+            </div>
+            <ol style="margin: 0; padding-left: 20px; color: #1e293b; font-size: 0.88rem; line-height: 1.55;">
+                <li><strong>Rebalancing Drift Trigger:</strong> Rebalance within 3 business days if any sleeve drifts by more than <strong>±5.0 percentage points</strong> from target weights.</li>
+                <li><strong>Tracking Error & Volatility Trigger:</strong> Halt additional capital deployments if 12-month realized tracking error against 60/40 exceeds <strong>3.50%</strong> or pilot volatility spikes above <strong>12.0%</strong>.</li>
+                <li><strong>Liquidity Covenant Floor:</strong> If quarterly grant distributions pull total SGOV cash below <strong>$3.0 Million (3.0%)</strong>, immediately rebalance risk assets to restore the liquid buffer.</li>
+            </ol>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
     # Interactive Portfolio Rebalancer Sandbox & Cash Flow Engine
     st.markdown("---")
     st.markdown("### 🎛️ Interactive Manual Allocation Sandbox & Grant Payout Waterfall Engine")
