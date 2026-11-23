@@ -634,10 +634,16 @@ with main_tab1:
     st.caption("Actionable rebalancing orders to transition capital from Current (40 SGOV / 60 RXI) to target allocations.")
 
     col_blot1, col_blot2 = st.columns(2)
+    # The Trade Blotter represents the formal committee implementation plan for the Meridian Foundation mandate (55 SGOV / 0 RXI / 45 PEJ)
+    base_target = {"SGOV": 0.55, "RXI": 0.0, "PEJ": 0.45}
+    asset_sort = {"SGOV": 0, "RXI": 1, "PEJ": 2}
+
     with col_blot1:
         st.markdown("#### Scenario A: Full $100M Portfolio Rebalance")
-        blotter_100m = rebalancing_trade_blotter(current_weights, optimal_weights, 100_000_000.0)
+        blotter_100m = rebalancing_trade_blotter(current_weights, base_target, 100_000_000.0)
         df_100m = pd.DataFrame(blotter_100m)[["Asset", "Current Weight", "Target Weight", "Net Trade ($)", "Action"]]
+        df_100m["_sort"] = df_100m["Asset"].map(asset_sort)
+        df_100m = df_100m.sort_values("_sort").drop(columns=["_sort"])
         st.dataframe(
             df_100m.style.format({"Current Weight": "{:.1%}", "Target Weight": "{:.1%}", "Net Trade ($)": "${:,.2f}"}),
             hide_index=True,
@@ -646,9 +652,11 @@ with main_tab1:
 
     with col_blot2:
         st.markdown("#### Scenario B: Recommended $10M Pilot Tranche")
-        target_pilot = {a: 0.10 * optimal_weights[a] + 0.90 * current_weights[a] for a in ASSETS}
+        target_pilot = {a: 0.10 * base_target[a] + 0.90 * current_weights[a] for a in ASSETS}
         blotter_10m = rebalancing_trade_blotter(current_weights, target_pilot, 100_000_000.0)
         df_10m = pd.DataFrame(blotter_10m)[["Asset", "Current Weight", "Target Weight", "Net Trade ($)", "Action"]]
+        df_10m["_sort"] = df_10m["Asset"].map(asset_sort)
+        df_10m = df_10m.sort_values("_sort").drop(columns=["_sort"])
         st.dataframe(
             df_10m.style.format({"Current Weight": "{:.1%}", "Target Weight": "{:.1%}", "Net Trade ($)": "${:,.2f}"}),
             hide_index=True,
