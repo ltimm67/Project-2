@@ -340,43 +340,50 @@ with tab_videos:
     v1, v2, v3 = st.columns(3)
     with v1:
         st.markdown("#### Video 1: Research Evolution & AI Check")
-        st.caption("Duration: 2:48 (Limit: 3:00) | Captions Enabled")
-        st.markdown("[▶️ Watch Video 1 on YouTube](https://youtu.be/placeholder-v1)")
+        st.caption("Duration: 3:22 | Closed Captions Enabled")
+        st.markdown("[▶️ Watch Video 1 on YouTube (3:22)](https://youtu.be/3y5cM4I0CYg)")
         with st.expander("Read Video 1 Transcript (Timestamped)"):
             st.markdown(
                 """
-                - **[00:00]** *Speaker: Lucas Timm* — Welcome. This video documents how our reserve model evolved from a naive 60/40 mix to a constrained institutional optimizer.
-                - **[00:45]** *Speaker: Lucas Timm* — We verified our covariance calculations independently in Python against raw monthly price returns.
-                - **[01:30]** *Speaker: Lucas Timm* — Our critical human check was on the 36-month window: the AI suggested adopting the 36-month weights, but our human stability check caught the 40-point reallocation into cash.
-                - **[02:15]** *Speaker: Lucas Timm* — This led us to formally recommend a 5%–10% pilot rather than full capital deployment.
+                - **[00:04]** *Speaker: Lucas Timm* — Welcome. I am the lead analyst here for the $100 million reserve mandate Lab 13.
+                - **[00:15]** *Mandatory Statements* — Educational demonstration only; Google Antigravity and Gemini Pro used for scaffolding, optimization, and Streamlit components; all decisions finalized by me.
+                - **[00:50]** *Research Evolution* — Shifted from naive static optimization to recognizing error maximization.
+                - **[01:20]** *Stress Test Discovery* — Shortening the window to 36 months caused SGOV to jump by 40 percentage points into cash.
+                - **[01:50]** *Checked AI Output* — AI suggested continuous floating-point quadratic solver with 0 correlation; audited and corrected to 5% discrete rebalancing steps and proved positive correlation with equities from 2022–2023 rate hikes.
                 """
             )
             
     with v2:
-        st.markdown("#### Video 2: Code Walkthrough & Architecture")
-        st.caption("Duration: 4:30 (Limit: 5:00) | Captions Enabled")
-        st.markdown("[▶️ Watch Video 2 on YouTube](https://youtu.be/placeholder-v2)")
+        st.markdown("#### Video 2: Code Walkthrough & Optimization Engine")
+        st.caption("Duration: 4:48 | Closed Captions Enabled")
+        st.markdown("[▶️ Watch Video 2 on YouTube (4:48)](https://youtu.be/mJVCupZrEZU)")
         with st.expander("Read Video 2 Transcript (Timestamped)"):
             st.markdown(
-                """
-                - **[00:00]** *Speaker: Lucas Timm* — Walking through `portfolio_engine.py` and `app.py`: we enforce a deterministic 5% grid search optimizer.
-                - **[01:15]** *Speaker: Lucas Timm* — Every mandate constraint—including the net hurdle after fee drag, the 20% reserve floor, and one-way turnover—is mathematically auditable.
-                - **[02:40]** *Speaker: Lucas Timm* — The automated unit test suite verifies all calculations in under 0.01 seconds.
-                - **[04:00]** *Speaker: Lucas Timm* — Demonstrating the graceful fallback from live Yahoo Finance to our SHA-256 verified prices.csv.
+                r"""
+                - **[00:04]** *Mandatory Statements* — Educational demonstration only; AI assistance from Gemini Pro; all architecture and decisions reviewed by me.
+                - **[00:30]** *Data Ingestion & Statistics* — Loading 60 monthly observations (requiring ≥37); computing annualized returns, sample Bessel volatility, covariance matrix.
+                - **[01:30]** *Metrics & Optimization* — Gross return, fee drag subtraction, variance $w^T \Sigma w$, Sharpe ratio, and 95% normal VaR loss.
+                - **[02:15]** *Grid Search Solver* — Exhaustive 5% discrete grid search evaluating non-negative weights clearing hurdle and reserve floors.
+                - **[02:45]** *Institutional Audit* — 8 mandate rules tested in `mandate_audit`.
+                - **[03:30]** *Cold Run & Tests* — `verify_project2.py` terminal execution and all 9 unit tests passing in 0.011s.
                 """
             )
             
     with v3:
         st.markdown("#### Video 3: Committee Presentation (Live App)")
-        st.caption("Duration: 4:45 (Limit: 5:00) | Captions Enabled")
-        st.markdown("[▶️ Watch Video 3 on YouTube](https://youtu.be/placeholder-v3)")
+        st.caption("Duration: 5:06 | Closed Captions Enabled")
+        st.markdown("[▶️ Watch Video 3 on YouTube (5:06)](https://youtu.be/_aaUnLdPBl0)")
         with st.expander("Read Video 3 Transcript (Timestamped)"):
             st.markdown(
                 """
-                - **[00:00]** *Speaker: Lucas Timm* — Opening with the application running live: for the Meridian Foundation $100M Reserve, we present the constrained optimal portfolio.
-                - **[01:20]** *Speaker: Lucas Timm* — 55% SGOV, 0% RXI, 45% PEJ delivers a 5.01% net return at 9.60% volatility.
-                - **[02:35]** *Speaker: Lucas Timm* — However, because the 36-month stress test exhibits a 40% sleeve shift, we formally recommend a 5% to 10% pilot allocation.
-                - **[04:10]** *Speaker: Lucas Timm* — Reviewing the actionable rebalancing trade blotter and quarterly distribution coverage.
+                - **[00:04]** *Live Opening & AI Statement* — Opening with the live Streamlit app running; educational demonstration for FIN 43900.
+                - **[00:40]** *Executive Storyboard* — The $100M reserve problem, current 60/40 mix, and why full $100M adoption is rejected in favor of a 5% to 10% pilot tranche.
+                - **[01:10]** *Base Case & 36M Stress Test* — 55% SGOV / 45% PEJ base; clicking 36M stress button shows the 40-point jump to 95% SGOV.
+                - **[01:45]** *Mandate Audit & Baseline Autopsy* — 8 rules cleared; explaining why Equal Weight and Inverse Volatility fail real preservation covenants.
+                - **[02:20]** *Stress Matrix & Stop Condition* — Regime instability limit (>25% shift) and liquidity covenants.
+                - **[03:00]** *Locked Changed-Input Test* — Adjusting hurdle to 4.69%, showing +15 pt SGOV shift to 70% and vol drop to 6.43%.
+                - **[03:45]** *Operational Monitoring Triggers* — Rebalancing drift (±5.0%), tracking error (3.50% TE / 12% Vol), liquidity floor ($3.0M).
+                - **[04:30]** *Multi-Module Capabilities* — Brief tour of Module 2 Custom Builder, Module 3 Equity Diligence, and Module 4 Audit Cockpit.
                 """
             )
 

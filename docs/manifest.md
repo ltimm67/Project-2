@@ -31,39 +31,40 @@
 All three required student presentations are recorded with closed captions / transcripts enabled:
 
 ### Video 1: Research Evolution & System Design
-- **Duration:** 2:58 (Requirement: $\le 3:00$)
-- **YouTube Link:** `https://youtu.be/FIN43900-Project2-Video1-LucasTimm` *(Presentation Recording with Closed Captions Enabled)*
+- **Duration:** 3:22 (Requirement: ~3:00)
+- **YouTube Link:** `https://youtu.be/3y5cM4I0CYg` *(Presentation Recording with Closed Captions Enabled)*
 - **Transcript File:** [`docs/video-1-transcript.md`](./video-1-transcript.md) & [`docs/transcript-video-1.txt`](./transcript-video-1.txt)
 - **Timestamped Evidence Index:**
   - `0:00 - 0:25`: Mandatory Opening Statements (AI usage disclosure & educational disclaimer).
   - `0:25 - 1:15`: Research Evolution (Transition from static optimization to Markowitz "error maximization").
   - `1:15 - 1:55`: Estimation Risk Demonstration (40-point allocation jump from 55% to 95% SGOV).
   - `1:55 - 2:40`: Checked AI Output (Auditing & correcting continuous SciPy optimizer to 5% discrete grid; correcting correlation).
-  - `2:40 - 2:58`: Authorship attribution & transition to codebase walkthrough.
+  - `2:40 - 3:22`: Authorship attribution & transition to codebase walkthrough.
 
 ### Video 2: Code Walkthrough & Optimization Engine
-- **Duration:** 4:32 (Requirement: $\le 5:00$)
-- **YouTube Link:** `https://youtu.be/FIN43900-Project2-Video2-LucasTimm` *(Presentation Recording with Closed Captions Enabled)*
+- **Duration:** 4:48 (Requirement: $\le 5:00$)
+- **YouTube Link:** `https://youtu.be/mJVCupZrEZU` *(Presentation Recording with Closed Captions Enabled)*
 - **Transcript File:** [`docs/video-2-transcript.md`](./video-2-transcript.md) & [`docs/transcript-video-2.txt`](./transcript-video-2.txt)
 - **Timestamped Evidence Index:**
   - `0:00 - 0:20`: Mandatory Opening Statements & repository architecture.
-  - `0:20 - 1:15`: Mathematical Foundation (`compute_statistics_from_prices`, monthly returns, Bessel volatility, covariance).
-  - `1:15 - 2:20`: Optimization Engine (`find_lowest_risk_mix`, grid-search logic, return and reserve constraint filtering).
-  - `2:20 - 3:15`: Institutional Mandate Rule Compliance Engine (`evaluate_mandate_rules`, testing all 7 IPS rules).
-  - `3:15 - 4:05`: Point-in-Time FRED Rates Ingestion & publication vintage gating.
-  - `4:05 - 4:32`: Terminal cold-run execution proof and path resolution test.
+  - `0:20 - 1:15`: Mathematical Foundation (`load_prices`, monthly returns, annualized returns, Bessel volatility, covariance).
+  - `1:15 - 2:20`: Optimization Engine (`optimize` 5% grid search logic, return hurdle, reserve floor, and normal VaR loss metric).
+  - `2:20 - 3:15`: Institutional Mandate Rule Compliance Engine (`mandate_audit`, testing all 8 IPS rules).
+  - `3:15 - 4:10`: Live execution in terminal with `verify_project2.py` showing baseline comparison and trade blotter.
+  - `4:10 - 4:48`: Unit test suite verification: all 9 tests passing in 0.011s.
 
 ### Video 3: Investment Committee Defense & Final Recommendation
-- **Duration:** 4:45 (Requirement: $\le 5:00$)
-- **YouTube Link:** `https://youtu.be/FIN43900-Project2-Video3-LucasTimm` *(Presentation Recording with Closed Captions Enabled)*
+- **Duration:** 5:06 (Requirement: $\approx 5:00$)
+- **YouTube Link:** `https://youtu.be/_aaUnLdPBl0` *(Presentation Recording with Closed Captions Enabled)*
 - **Transcript File:** [`docs/video-3-transcript.md`](./video-3-transcript.md) & [`docs/transcript-video-3.txt`](./transcript-video-3.txt)
 - **Timestamped Evidence Index:**
   - `0:00 - 0:30`: Live Running Streamlit App Opening & Committee Introduction.
-  - `0:30 - 1:20`: Mandate review & side-by-side baseline comparison (proving why Equal Weight & Inverse Volatility FAIL).
-  - `1:20 - 2:15`: Live demonstration of 40-point window jump (toggling from 60m to 36m on screen).
-  - `2:15 - 3:00`: Live Locked Changed-Input Test (moving return hurdle to 4.69%, showing +15 pt SGOV shift).
-  - `3:00 - 3:55`: Buy-side defense of the PILOT recommendation (5.0% to 10.0% allocation range).
-  - `3:55 - 4:45`: Three enforceable operational monitoring triggers, exact Stop Condition, and formal committee ask.
+  - `0:30 - 1:20`: Mandate review & Executive Storyboard defending the 5% to 10% pilot recommendation.
+  - `1:20 - 2:15`: Live demonstration of 40-point window jump (toggling 36-Month stress test on screen).
+  - `2:15 - 3:00`: Tab 3 Mandate Audit & baseline comparison (proving why Equal Weight & Inverse Volatility FAIL).
+  - `3:00 - 3:55`: Live Locked Changed-Input Test (moving return hurdle to 4.69%, showing +15 pt SGOV shift).
+  - `3:55 - 4:35`: Three enforceable operational monitoring triggers & Stop Condition.
+  - `4:35 - 5:06`: Walkthrough of broader capabilities (Module 2 Custom Builder, Module 3 Equity Diligence, Module 4 Audit Cockpit).
 
 ---
 

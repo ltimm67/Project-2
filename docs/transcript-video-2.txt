@@ -1,41 +1,43 @@
-# Video 2 Transcript: Code Walkthrough & Optimization Engine
-
+# Video 2: Code Walkthrough & Optimization Engine (Corrected Transcript)
 **Course:** FIN 43900 — Advanced Financial Modeling / AI in Finance (Fall 2026)  
-**Student / Presenter:** Lucas Timm (Lead Portfolio Analyst, ltimm@purdue.edu)  
-**Partner / Reviewer:** Miles Nine (Analyst, Tesla, Inc. — TSLA)  
-**Exact Duration:** ~4:20 (Course Requirement: <= 5:00)  
-**YouTube Presentation Link:** `https://youtu.be/FIN43900-Project2-Video2-LucasTimm`  
+**Presenter:** Lucas Timm (ltimm@purdue.edu) — Lead Portfolio Analyst  
+**Recording Date:** November 23, 2026  
+**Duration:** 4m 48s  
+**YouTube Link:** https://youtu.be/mJVCupZrEZU  
 
 ---
 
-## Mandatory Opening Statements
-> **Mandatory AI Disclosure:** I used **Google Antigravity (Gemini Pro)** to assist with software scaffolding, mathematical grid-search optimization routines, interactive Streamlit UI components, and markdown documentation formatting. I manually audited and verified every quantitative calculation, validated the covariance and returns matrices against raw ETF observations, designed the institutional stress scenarios, and formulated the final fiduciary recommendation. I own the investment decision in full.  
-> **Academic Disclaimer:** Built with AI assistance for academic evaluation in FIN 43900 (Purdue University); an educational demonstration, not investment advice.
+### Verbatim Transcript
 
----
+Meeting with Lucas Anthony Timm-20261123_125500-Meeting Recording
+November 23, 2026, 5:55PM
+Duration: 4m 48s
 
-## Verbatim Presentation Script with Timestamps
+Lucas Anthony Timm started transcription
 
-[00:00] "Hello again. My name is Lucas Timm, and this is Video 2, our code walkthrough for Project 2 in FIN 43900.
+[00:04]
+"All right, hello, I'm back. Lucas Timm here. So I'll start off by saying, once again:
 
-Before sharing my screen, here are my mandatory opening statements:
-First, my AI Announcement: I used Google Antigravity (Gemini Pro) to assist with software scaffolding, mathematical optimization routines, and interface layout.
-Second, Responsibility and Scope: All model architectures, mandate constraints, calculations, and code implementations were reviewed, verified, and finalized by me. This codebase is prepared solely for educational evaluation in FIN 43900 at Purdue University, not individualized investment advice.
+I used AI Gemini Pro to help with the, you know, stress testing, the formatting, the Streamlit components, things like that, but ultimately, you know, analysis and decisions were authorized, finalized, and reviewed by me. But this is educational only. This is not investment advice, so take that all with a grain of salt.
 
-[00:25] Now sharing my screen, let's walk through our Python mathematical engine in `portfolio_engine.py` and our interactive dashboard in `app.py`.
+So jumping right into the code, this is Video 2, sorry, just forgot to say that. This is code line by line to get into why and what went into the code.
 
-[00:45] Looking at `portfolio_engine.py`, lines 18 through 27 implement `load_prices` and `file_sha256`. The function ingests our 60 monthly observations for SGOV, RXI, and PEJ, requiring at least 37 observations for statistical degrees of freedom, and computes the cryptographic SHA-256 hash to guarantee data provenance without look-ahead revisions.
+So here we have the assets, as you can see those. First thing we did was load the prices to ensure that it ingested the 60 monthly observations that we talked about in the previous video with this constraint that at least 37 monthly observations are required for various reasons.
 
-[01:15] In lines 38 through 58, `statistics` calculates period-by-period percentage returns, annualizes the mean returns by multiplying by 12, and calculates sample volatilities using Bessel's correction with $m-1$ degrees of freedom. SGOV annualized return is 3.78% at 0.48% volatility; RXI is 3.53% return at 19.07% volatility; and PEJ is 6.85% return at 21.22% volatility.
+So jumping into the defining the monthly returns—or sorry, the `statistics`. So we annualized the annual returns by multiplying by 12 because before it was monthly, but then computed these annualized expected returns, volatility, covariance, correlation of the return series by doing various mathematical operations with the help of AI.
 
-[01:50] Lines 60 through 72 define `metrics`. We compute gross return as the inner product of weights and mean returns, net return by subtracting trading drag (15 bps), and portfolio variance through the double summation $w^T \Sigma w$. We also calculate the 95% one-year Value-at-Risk using the normal parametric formula: Return minus 1.645 times Volatility.
+Then I went into defining the `metrics`, so calculating the institutional portfolio performance and the risk metrics. So as you can see, the gross is the sum of the weights times the annual returns. The variance is the sum of the weights times covariance times the weights, which is the definition of portfolio variance $w^T \Sigma w$ there. Ultimately, the volatility and the Sharpe ratio, which is the gross return minus the risk-free rate divided by volatility, and ultimately getting the normal VaR loss rate at the 95th percentile there. So all right now in code, calculated. Pretty straightforward stuff.
 
-[02:25] In lines 78 through 92, `optimize` implements our exhaustive 5% discrete grid search solver. It evaluates all valid non-negative weight combinations summing to 1.0, enforces the net return hurdle (5.03%) and minimum SGOV reserve floor (20.0%), and isolates the global minimum-variance allocation.
+And then, you know, went into the `optimize` function. So exhaustive 5% grid search optimizer, what I talked about last video, and doing that for the minimum volatility under the reserve constraints. Which is all laid out here, taking gross return and the hurdle, ultimately finding the hurdle there.
 
-[03:00] Lines 94 through 108 implement `mandate_audit`. This function formally audits 8 institutional rules from the Meridian IPS: weights sum to 100%, long-only compliance, net return hurdle, reserve floor, 10% volatility ceiling, 5-day liquidity (which is 100% for ETFs), single-issuer limits, and one-way turnover against the current 60/40 benchmark.
+Going into the `mandate_audit`, so we brought in the 8 institutional audit mandate constraints, this runs through those: Make sure that the weights sum to 100%, long-only, target return hurdle cleared, net return hurdle, make sure there's a reserve floor, volatility limit, the five-day liquidity. You can read the rest, but ensuring that all those constraints are met, and ultimately we'll show you that they are. And then also this normal VaR loss metric.
 
-[03:35] Turning to `app.py`, we construct the Streamlit UI. Module 1 renders the executive decision banner, KPI cards, interactive Markowitz Efficient Frontier with 600 simulated portfolios, dynamic mandate audit, transparent baseline comparisons, and the 36-month stress window test.
+So yeah, this is the walkthrough of the code. It continues, but for now I'll jump over to `app.py` and show you a little bit of the testing.
 
-[04:00] Finally, in `verify_project2.py`, we provide a standalone verification runner that executes in under 0.3 seconds and automatically exports `visible_output.json`, ensuring the Stranger Standard is completely satisfied.
+So open up this terminal, I already have it copied, but going into `verify_project2.py`: Running that, it immediately bumps out this table, which we talked about, you know, in the previous video of this Equal Weight and the Inverse Volatility baselines that ultimately fail, which was why we, you know, chose to go into the 5% to 10% pilot range rather than the full 100%. You get the actionable trade blotter—the SGOV, the RXI, and the PEJ here—which matches with what we talked about.
 
-[04:15] In Video 3, I will present our live app and defend our committee recommendation. Thank you."
+And then to show you this as well: all nine unit tests pass in 0.011 seconds, just to verify that.
+
+So that should be good there. So thank you. And in Video 3, I will run through the app that I created and show you how that works, how to use it, and ultimately just confirm to the committee our decision that we made. Thank you."
+
+Lucas Anthony Timm stopped transcription

@@ -1,48 +1,58 @@
-# Video 3 Transcript: Investment Committee Defense & Final Recommendation
-
+# Video 3: Investment Committee Defense & Final Recommendation (Corrected Transcript)
 **Course:** FIN 43900 — Advanced Financial Modeling / AI in Finance (Fall 2026)  
-**Student / Presenter:** Lucas Timm (Lead Portfolio Analyst, ltimm@purdue.edu)  
-**Partner / Reviewer:** Miles Nine (Analyst, Tesla, Inc. — TSLA)  
-**Exact Duration:** ~4:30 (Course Requirement: <= 5:00)  
-**YouTube Presentation Link:** `https://youtu.be/FIN43900-Project2-Video3-LucasTimm`  
+**Presenter:** Lucas Timm (ltimm@purdue.edu) — Lead Portfolio Analyst  
+**Recording Date:** November 23, 2026  
+**Duration:** 5m 06s  
+**YouTube Link:** https://youtu.be/_aaUnLdPBl0  
 
 ---
 
-## Mandatory Opening Statements
-> **Mandatory AI Disclosure:** I used **Google Antigravity (Gemini Pro)** to assist with software scaffolding, mathematical grid-search optimization routines, interactive Streamlit UI components, and markdown documentation formatting. I manually audited and verified every quantitative calculation, validated the covariance and returns matrices against raw ETF observations, designed the institutional stress scenarios, and formulated the final fiduciary recommendation. I own the investment decision in full.  
-> **Academic Disclaimer:** Built with AI assistance for academic evaluation in FIN 43900 (Purdue University); an educational demonstration, not investment advice.
+### Verbatim Transcript
 
----
+Meeting with Lucas Anthony Timm-20261123_140311-Meeting Recording
+November 23, 2026, 7:03PM
+Duration: 5m 06s
 
-## Verbatim Presentation Script with Timestamps
+Lucas Anthony Timm started transcription
 
-[00:00] "Welcome, members of the Investment Committee and Board of Trustees of the Meridian Foundation. My name is Lucas Timm, Lead Portfolio Analyst for your $100 Million Reserve Portfolio. 
+[00:04]
+"All right, hello, hello. Lucas back here with Video 3. I'm going to run through the app that I created according to the rubric online.
 
-As required by course and governance standards, I am opening today's defense with our interactive Streamlit application running live on screen at localhost port 8501.
+So, starting with the AI statement once again: Google Antigravity Pro helped to optimize everything I did, but ultimately the decisions and analysis were reviewed, authorized, and finalized by myself. And once again, this is educational demonstration, not individualized investment advice.
 
-Before presenting our recommendation, here are my mandatory opening statements:
-First, my AI Announcement: I used Google Antigravity (Gemini Pro) to assist with mathematical optimization routines, unit testing, and interface layout.
-Second, Responsibility and Scope: All financial model choices, mandate bounds, stress tests, and committee recommendations were authored, reviewed, and finalized by me. This presentation is an educational demonstration for FIN 43900 at Purdue University, not individualized investment advice.
+So jumping right into the application, because I want to show as much of it as I can:
+I created 4 modules here, with the first module being the Reserve Mandate and the three being extra capabilities that the user will be able to use.
 
-[00:32] Let me state our definitive fiduciary recommendation upfront: We recommend that the committee authorize a **CONDITIONAL PILOT MANDATE with an allocation range of 5.0% to 10.0% of reserve capital ($5.0 Million to $10.0 Million pilot tranche)**. We advise retaining the remaining 90% to 95% in our strategic 60/40 benchmark (60% RXI / 40% SGOV) while tracking live out-of-sample stability. We formally advise against full adoption of the optimizer for the entire $100 million reserve today.
+This is our navigation hub. It walks us through the executive storyboard: As you guys know, the $100 million reserve allocation, the problem, the current allocation, and ultimately our recommendation, which as you can see here, is a conditional pilot of 5% to 10% allocation.
 
-[01:05] Looking at the dashboard on screen, the Meridian mandate requires achieving CPI plus 4.0% net—translating to a 5.03% annual return hurdle from FRED series DGS10—while preserving a minimum 20.0% liquid cash reserve in SGOV for quarterly grant disbursements.
+So while the base portfolio meets all the mandate requirements, re-estimating after the 36-month window causes an extreme 40% reallocation into cash, which exceeds the 25% mandate stop condition that we put. So as you can see, the full 100 is rejected in favor of a 5% to 10% pilot tranche.
 
-[01:30] In Tab 3 of the app, we test two transparent baselines beside our constrained portfolio:
-- The **Equal-Weight Baseline** (33.3% SGOV / 33.3% RXI / 33.3% PEJ) delivers an expected return of 4.72% with 12.76% volatility. It fails our mandate because 4.72% lags our 5.03% hurdle.
-- The **Inverse-Volatility Baseline** (95.4% SGOV / 2.4% RXI / 2.2% PEJ) produces a low volatility of 1.07%, but return collapses to 3.84%, failing the hurdle by 119 basis points.
-- Our **Constrained Optimal Portfolio** passes all primary mandate rules: it allocates **55.0% to SGOV, 0.0% to RXI, and 45.0% to PEJ**, generating a 5.16% gross return, 5.01% net return after 15 bps fee friction, 9.60% volatility, and 55.0% reserve liquidity.
+So I'm going to jump right into the capabilities of the app:
+As I just said, this is the base case with the 55% and the 45%—55% being SGOV, 45% being PEJ.
 
-[02:18] So why are we recommending a pilot rather than full adoption?
-Watch my screen as I toggle the estimation window control on the sidebar:
-When we switch from the full 60-month dataset to the post-inflation 36-month window, look at the allocation shift:
-The allocation to SGOV jumps from **55% to 95%**, while PEJ drops from **45% down to 5%**. That is a **40.0 percentage point allocation swing**! Under our investment policy statement, any window shift greater than 25.0 percentage points triggers a formal Stop Condition.
+In this click of a button, I can show the 36-Month stress test. And this will update. So as you can see beforehand, this is why they ultimately said, 'Hey, we're going to go along with this very naive, we're going to put $100 million in'—we have 95% in SGOV and 5% in PEJ. So this was ultimately what they were looking at before, and this is after we did the 36-month window shift.
 
-[03:00] Next, look at our Locked Changed-Input Record: Before running the model, I predicted with AI turned off that lowering the net return hurdle by 34 basis points to 4.69% would relax the equity risk budget, expanding SGOV by roughly 10 percentage points from 55% to 65%, dropping PEJ to 25%–35%, and lowering volatility below 7.00%. As I move the slider to 4.69%, SGOV shifts by +15.0 percentage points to 70%, and volatility drops to 6.43%, confirming our directional prediction on the 5% grid.
+So going right along into the Mandate Audit: This is the eight tests I was talking about—it passes them all. We ultimately did an Equal Weight and an Inverse Volatility test, which both failed—both naive baselines failed, as I said before. Taking equity risk without clearing the hurdle breaches the foundation's core real capital preservation covenant, and under-allocating guarantees that purchasing power is lost to inflation over time.
 
-[03:40] To govern our recommended 5% to 10% pilot tranche, we establish three strict operational monitoring triggers:
-1. **Rebalancing Drift Trigger:** Rebalance within 3 business days if any sleeve drifts by more than +/- 5.0 percentage points from target weights.
-2. **Tracking Error & Volatility Trigger:** Halt additional capital deployments if 12-month realized tracking error against the 60/40 benchmark exceeds 3.50% or pilot volatility spikes above 12.0%.
-3. **Liquidity Covenant Floor:** If quarterly grant distributions pull total SGOV cash below $3.0 Million (3.0%), immediately rebalance risk assets to restore the liquid buffer.
+So moving right along, let me go into the Stress Matrix:
+So once again, why full adoption is rejected: You have that regime instability limit—shortening the window from 60 months to 36 months caused us to reallocate by 40 percentage points, and that breaches the foundation's 25% stability limit. Infeasibility: fee drag causing net return to go below that 5% hurdle rate; and the liquidity covenant.
 
-[04:15] In summary, our process provides an auditable, transparent decision engine that protects foundation purchasing power while acknowledging real-world estimation risk. Thank you, and I look forward to your questions."
+So going back into this third button here:
+As I talked about, the one AI input that I audited and corrected was that, you know, when you move the sensitivity down from the original 5% to this 4.69%, watch what happens to these allocations right here:
+As I said, I was a little off—I predicted it was going to move 10%, but it moved 15% (SGOV shifts from 55% to 70%), and PEJ moved down to 30%. So as I previously stated, it did in fact really confirm the directional shift on the 5% grid.
+
+Lastly, I'm going to go into some summaries that we came up with for governance triggers:
+1. The **Rebalancing Drift Trigger**: Rebalance within three business days if any sleeve drifts by more than 5.0 percentage points from target weights.
+2. The **Tracking Error & Volatility Trigger**: Halt additional capital deployments if 12-month realized tracking error against 60/40 exceeds 3.5%, or pilot volatility spikes above 12.0%.
+3. And then that **Liquidity Covenant Floor**: If grant distributions pull total SGOV cash below $3.0 Million, immediately rebalance risk assets to restore the liquid buffer.
+
+Let me check how much time has gone by: So we're at 4 minutes. That is it for that.
+
+But I'm just going to run through these other three modules:
+- If you want to explore more tickers and build your own custom portfolio, that's **Module 2**.
+- In **Module 3**, I created a custom search where you can search any ticker that you want, pulls up what it thinks you should do, some key vital signs, dividend percentage, and about the ticker in general.
+- And explore **Module 4**, the Audit & Governance page as well.
+
+Feel free to explore the app and do whatever you may like. Thank you."
+
+Lucas Anthony Timm stopped transcription

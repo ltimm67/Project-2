@@ -75,6 +75,18 @@ python -m unittest discover -s tests -v
 
 ---
 
+## Video Presentations & Verified Transcripts
+
+All three required student presentations are recorded with closed captions enabled:
+
+| Video | Title & Focus | Duration | YouTube Link | Transcript |
+|---|---|:---:|:---:|:---:|
+| **Video 1** | Research Evolution & Checked AI Output | 3:22 | [Watch Video 1](https://youtu.be/3y5cM4I0CYg) | [`docs/transcript-video-1.txt`](docs/transcript-video-1.txt) |
+| **Video 2** | Code Walkthrough & Optimization Engine | 4:48 | [Watch Video 2](https://youtu.be/mJVCupZrEZU) | [`docs/transcript-video-2.txt`](docs/transcript-video-2.txt) |
+| **Video 3** | Committee Defense (Live App Walkthrough) | 5:06 | [Watch Video 3](https://youtu.be/_aaUnLdPBl0) | [`docs/transcript-video-3.txt`](docs/transcript-video-3.txt) |
+
+---
+
 ## Repository Map
 
 ```

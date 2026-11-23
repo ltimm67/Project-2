@@ -1,37 +1,45 @@
-# Video 1 Transcript: Research Evolution & System Design
-
+# Video 1: Research Evolution & System Design (Corrected Transcript)
 **Course:** FIN 43900 — Advanced Financial Modeling / AI in Finance (Fall 2026)  
-**Student / Presenter:** Lucas Timm (Lead Portfolio Analyst, ltimm@purdue.edu)  
-**Partner / Reviewer:** Miles Nine (Analyst, Tesla, Inc. — TSLA)  
-**Exact Duration:** ~2:45 (Course Requirement: <= 3:00)  
-**YouTube Presentation Link:** `https://youtu.be/FIN43900-Project2-Video1-LucasTimm`  
+**Presenter:** Lucas Timm (ltimm@purdue.edu) — Lead Portfolio Analyst  
+**Recording Date:** November 23, 2026  
+**Duration:** 3m 22s  
+**YouTube Link:** https://youtu.be/3y5cM4I0CYg  
 
 ---
 
-## Mandatory Opening Statements
-> **Mandatory AI Disclosure:** I used **Google Antigravity (Gemini Pro)** to assist with software scaffolding, mathematical grid-search optimization routines, interactive Streamlit UI components, and markdown documentation formatting. I manually audited and verified every quantitative calculation, validated the covariance and returns matrices against raw ETF observations, designed the institutional stress scenarios, and formulated the final fiduciary recommendation. I own the investment decision in full.  
-> **Academic Disclaimer:** Built with AI assistance for academic evaluation in FIN 43900 (Purdue University); an educational demonstration, not investment advice.
+### Verbatim Transcript
 
----
+Meeting with Lucas Anthony Timm-20261123_122956-Meeting Recording
+November 23, 2026, 5:29PM
+Duration: 3m 22s
 
-## Verbatim Presentation Script with Timestamps
+Lucas Anthony Timm started transcription
 
-[00:00] "Hello everyone. My name is Lucas Timm, Lead Portfolio Analyst for Project 2 in FIN 43900. 
+[00:04]
+"All right, hello, hello. My name is Lucas Timm. I am the lead analyst here for the $100 million reserve mandate Lab 13 that we worked on. And I'm going to go through how my viewpoint changed and I'm going from that to now. 
 
-Before diving into the analysis, here are my mandatory opening statements:
-First, my AI Announcement: I used Google Antigravity (Gemini Pro) to assist with software scaffolding, mathematical grid-search optimization routines, interactive Streamlit components, and documentation formatting. 
-Second, Responsibility and Scope: All portfolio model choices, mandate parameters, stress test analyses, and final recommendations were authored, reviewed, and finalized by me. This project is an educational demonstration for FIN 43900 at Purdue University, not individualized investment advice.
+I'll start off by saying this is not investment advice, this is educational purposes only, and I will go into my AI statement:
 
-[00:28] In this video, I am documenting our research evolution and how our quantitative system and thinking changed for the Meridian Foundation's $100 Million Reserve Mandate, as well as one AI output I audited and corrected.
+I used Google Antigravity and Gemini Pro to come up with, you know, the scaffolding, the mathematical grid searches, the analysis, the stress testing, and the Streamlit components to build the app, but you know, the model choices, all of this was reviewed, authorized, and finalized by me. But once again, this is not investment advice, so take it with a grain of salt.
 
-[00:45] When we began in Lab 13 with the Meridian mandate, my initial assumption was that portfolio construction was a straightforward engineering optimization problem: take the foundation's 5.03% return hurdle (CPI + 4.0%), plug in historical returns and volatilities for Treasuries (SGOV), global discretionary (RXI), and leisure (PEJ), and let a mean-variance optimizer find the lowest-volatility combination.
+So, in this video, Video 1, I'm documenting our research evolution, you know, our thought process from Lab 13 to now on Meridian Foundation's $100 million reserve mandate, as well as one AI output that I ultimately thought we should audit and correct.
 
-[01:12] But through our research progression from Edition A to Edition B, my entire mental model shifted. Optimizers are notorious error maximizers. Over our full 60-month dataset, the optimizer selected 55% SGOV, 0% RXI, and 45% PEJ. It completely eliminated global equities because PEJ had a higher historical return (6.85% vs 3.53%), even though PEJ carried 21.22% volatility.
+So when I began Lab 13, you know, I thought this was a simple engineering optimization problem. Straightforward, you know, take the 5%, plug in some historical data, and then ultimately find the lowest volatility, you know, combination.
 
-[01:38] The turning point came when we executed our 36-month lookback stress test. Shifting the window caused an extreme 40 percentage point reallocation into cash, jumping from 55% to 95% SGOV. That single test revealed severe estimation fragility. An institutional committee cannot deploy $100 million of charitable capital to a mathematical boundary that swings 40 points based on lookback window selection. This drove our final decision to reject full adoption and recommend a bounded 5% to 10% pilot.
+But I was soon incorrect, so I'll jump over here and get into a little bit of why, you know, what changed with me and my partner, Miles, as we went on.
 
-[02:08] Now, regarding the AI output I checked: During development, the AI assistant suggested using a continuous SciPy quadratic solver with floating-point weights, generating an unconstrained mix of 54.68% SGOV and 45.32% PEJ.
+So, we realized the model was, you know, an unconstrained statistical optimizer that was very naive in recommending the immediate 100% deployment into the highest historical return assets. So with AI, we, you know, created some baselines—Equal Weight, Inverse Volatility—and ultimately conducted the stress testing, which was the pivotal point for us. 
 
-[02:25] I audited and corrected this for two reasons: First, institutional committees operate on discrete 5% rebalancing steps rather than decimal-point false precision. I rewrote the engine to use a discrete 5% grid search. Second, the AI initially assumed zero correlation between SGOV and equities. I manually audited prices.csv and proved that SGOV had a positive 0.26 correlation with RXI and 0.17 with PEJ due to the 2022-2023 rate hikes. Correcting this correlation in code ensured our risk metrics reflected true market behavior.
+So we realized that full adoption was rejected with the discovery that shortening the sample window to 36 months caused the optimal SGOV allocation to jump by 40 percentage points. And this was huge for us in, you know, figuring out what happened there.
 
-[02:45] In Video 2, I will walk through the codebase line by line. Thank you."
+And then one thing, you know, that I changed ultimately, with the help of AI, of course, but the AI assistant suggested using a continuous quadratic solver with floating weighting points and ultimately assumed 0 correlation between cash and equities.
+
+So I flagged this, audited it, and corrected the output for basically 2 reasons: 
+First, committees operate on discrete 5% rebalancing steps rather than this decimal point false precision. So I rewrote that. 
+And then also, the AI initially assumed 0 correlation between SGOV and equities, which could be manually audited in the prices.csv, and ultimately proved that it had a positive correlation with both RXI and PEJ due to some 2022 and 2023 rate hike data. 
+
+And you know, this ensured our risk measures reflected true market behavior rather than making assumptions.
+
+So I'll be back in Video 2 to go through some code line by line and share the rest of the project. Thanks."
+
+Lucas Anthony Timm stopped transcription
